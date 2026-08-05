@@ -32,13 +32,15 @@
 
 
 
+
+
 <!-- ================= MAIN CONTENT ================= -->
 
 <section class="page-bg">
 
     <!-- ========= OUR FEATURES ========= -->
 
-    <div class="container">
+        <div class="page-container">
 
         <div class="section-heading">
             <h2>Our Features</h2>
@@ -145,7 +147,8 @@
 
 
 <!-- ================= WHY CHOOSE US ================= -->
-<div class="container">
+
+<div class="page-container">
 
 <div class="why-section">
 
@@ -219,6 +222,8 @@
 
 <!-- ================= EVENTS PREVIEW ================= -->
 
+<div class="page-container">
+
 <div class="events-section">
 
     <div class="section-heading">
@@ -229,82 +234,38 @@
 
     <div class="events-grid">
 
-        <!-- Card 1 -->
+{% for event in events %}
 
-        <div class="event-card">
+<div class="event-card">
 
-            <img src="{% static 'images/event1.jpg' %}" alt="">
+    <img src="{{ event.image.url }}" alt="{{ event.title }}">
 
-            <div class="event-content">
+    <div class="event-content">
 
-                <h4>Tech Conference 2024</h4>
+        <h4>{{ event.title }}</h4>
 
-                <p>A gathering of tech innovators and industry leaders.</p>
+        <p>{{ event.description|truncatechars:80 }}</p>
 
-                <a href="{% url 'event_details' %" class="event-btn">View Details</a>
-
-            </div>
-
-        </div>
-
-        <!-- Card 2 -->
-
-        <div class="event-card">
-
-            <img src="{% static 'images/event2.jpg' %}" alt="">
-
-            <div class="event-content">
-
-                <h4>Corporate Events</h4>
-
-                <p>Professional and impactful corporate gatherings.</p>
-
-                <a href="#" class="event-btn">View Details</a>
-
-            </div>
-
-        </div>
-
-        <!-- Card 3 -->
-
-        <div class="event-card">
-
-            <img src="{% static 'images/event3.jpg' %}" alt="">
-
-            <div class="event-content">
-
-                <h4>Private Parties</h4>
-
-                <p>Memorable and fun private parties.</p>
-
-                <a href="#" class="event-btn">View Details</a>
-
-            </div>
-
-        </div>
-
-        <!-- Card 4 -->
-
-        <div class="event-card">
-
-            <img src="{% static 'images/event4.jpg' %}" alt="">
-
-            <div class="event-content">
-
-                <h4>Festivals</h4>
-
-                <p>Large-scale music and arts festivals.</p>
-
-                <a href="#" class="event-btn">View Details</a>
-
-            </div>
-
-        </div>
+        <a href="{% url 'event_details' event.id %}" class="event-btn">
+            View Details
+        </a>
 
     </div>
 
 </div>
 
+{% empty %}
+
+<p>No events available.</p>
+
+{% endfor %}
+
+</div>
+
+</div>
+</div>
+
+<!-- ================= TESTIMINIAL SECTION ================= -->
 
 <div class="testimonial-section">
 
@@ -312,72 +273,56 @@
         <h2>Testimonials</h2>
     </div>
 
-    <div class="testimonial-item">
-
-        <div class="profile">
-            <img src="{% static 'images/user1.jpg' %}" alt="">
-            <div>
-                <h5>Sophia Carter</h5>
-                <span>May 15, 2024</span>
-            </div>
-        </div>
-
-        <div class="stars">
-            ★★★★★
-        </div>
-
-        <p>
-            "Master Promote made our wedding day absolutely perfect.
-            Their attention to detail and seamless execution allowed
-            us to fully enjoy our special day without any stress."
-        </p>
-
-    </div>
+    {% for testimonial in testimonials %}
 
     <div class="testimonial-item">
 
         <div class="profile">
-            <img src="{% static 'images/user2.jpg' %}" alt="">
+
+            {% if testimonial.image %}
+    <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}">
+{% else %}
+    <img src="{% static 'images/default-user.png' %}" alt="Default User">
+{% endif %}
+
             <div>
-                <h5>Ethan Bennett</h5>
-                <span>April 22, 2024</span>
+                <h5>{{ testimonial.name }}</h5>
+                <span>{{ testimonial.created_at|date:"F d, Y" }}</span>
             </div>
+
         </div>
 
         <div class="stars">
-            ★★★★★
+            {% for i in "12345" %}
+                {% if forloop.counter <= testimonial.rating %}
+                    ★
+                {% else %}
+                    ☆
+                {% endif %}
+            {% endfor %}
         </div>
 
-        <p>
-            "We hired Master Promote for our annual corporate conference,
-            and they exceeded our expectations."
-        </p>
+        <p>{{ testimonial.review }}</p>
 
     </div>
 
-    <div class="testimonial-item">
+    {% empty %}
 
-        <div class="profile">
-            <img src="{% static 'images/user3.jpg' %}" alt="">
-            <div>
-                <h5>Olivia Hayes</h5>
-                <span>March 10, 2024</span>
-            </div>
-        </div>
+    <p>No reviews yet.</p>
 
-        <div class="stars">
-            ★★★★★
-        </div>
-
-        <p>
-            "Master Promote planned my birthday party perfectly.
-            The team was creative and responsive."
-        </p>
-
-    </div>
+    {% endfor %}
 
 </div>
 
+<p class="review-text">
+    Enjoyed one of our events? We'd love to hear your feedback!
+</p>
+
+<div class="review-btn">
+    <a href="{% url 'testimonial' %}" class="cta-btn">
+        Write a Review
+    </a>
+</div>
 
 <!-- ================= CTA SECTION ================= -->
 
@@ -390,7 +335,7 @@
         Contact us today to get started.
     </p>
 
-    <a href="#" class="cta-btn">Book Your Event</a>
+    <a href="{% url 'events' %}" class="cta-btn">Book Your Event</a>
 
 </div>
 

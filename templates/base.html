@@ -26,8 +26,10 @@
     <div class="container nav-container">
 
         <div class="logo">
-            <img src="{% static 'images/logo.png' %}" alt="Logo">
-        </div>
+    <a href="{% url 'home' %}">
+        <img src="{% static 'images/logo.png' %}" alt="Logo">
+    </a>
+</div>
 
         <ul class="nav-links">
 
@@ -80,11 +82,21 @@
 
         <div class="social-icons">
 
-            <i class="bi bi-facebook"></i>
-            <i class="bi bi-instagram"></i>
-            <i class="bi bi-twitter-x"></i>
+        
 
-        </div>
+    <a href="https://www.facebook.com/" target="_blank">
+        <i class="bi bi-facebook"></i>
+    </a>
+
+    <a href="https://www.instagram.com/" target="_blank">
+        <i class="bi bi-instagram"></i>
+    </a>
+
+    <a href="https://twitter.com/" target="_blank">
+        <i class="bi bi-twitter"></i>
+    </a>
+
+    </div>
 
         <p>
             © 2024 Make Events. All Rights Reserved.

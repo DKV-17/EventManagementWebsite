@@ -13,25 +13,31 @@
 
             <h2 class="page-title">Events</h2>
 
-            <div class="filter-bar">
+       
+<form method="GET" class="filter-bar">
 
-                <select>
-                    <option>Event Type</option>
-                </select>
+    <select name="category">
+        <option value="">All Event Types</option>
 
-                <select>
-                    <option>Budget Range</option>
-                </select>
+        {% for value, label in categories %}
+            <option value="{{ value }}">{{ label }}</option>
+        {% endfor %}
+    </select>
 
-                <select>
-                    <option>Location</option>
-                </select>
+    <select name="location">
+        <option value="">All Locations</option>
 
-                <select>
-                    <option>Venue</option>
-                </select>
+        {% for place in locations %}
+            <option value="{{ place }}">{{ place }}</option>
+        {% endfor %}
+    </select>
 
-            </div>
+    <button type="submit" class="filter-btn">
+        <i class="bi bi-funnel-fill"></i> Filter
+    </button>
+
+</form>
+
 
             <div class="events-grid">
 
