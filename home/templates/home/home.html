@@ -1,0 +1,401 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-overlay">
+        <div class="hero-content">
+
+            <h1>Every Event Memorable &amp; Stress-Free</h1>
+
+            <p>
+                We plan, design, and manage unforgettable events with
+                professional execution and creative excellence.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="{% url 'events' %}" class="btn-event">View Events</a>
+              
+                <a href="{% url 'booking' %}" class="btn-book">Book Your Event</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<!-- ================= MAIN CONTENT ================= -->
+
+<section class="page-bg">
+
+    <!-- ========= OUR FEATURES ========= -->
+
+    <div class="container">
+
+        <div class="section-heading">
+            <h2>Our Features</h2>
+            <h3>Comprehensive Event Solutions</h3>
+            <p>
+                From initial concept to final execution, we handle every detail
+                to ensure your event is a success.
+            </p>
+        </div>
+
+        <div class="features-grid">
+
+            <!-- Card 1 -->
+
+            <div class="feature-card">
+
+                <i class="bi bi-calendar-event"></i>
+
+                <h4>Event Planning</h4>
+
+                <p>
+                    Comprehensive planning from concept to execution.
+                </p>
+
+            </div>
+
+            <!-- Card 2 -->
+
+            <div class="feature-card">
+
+                <i class="bi bi-palette"></i>
+
+                <h4>Event Design</h4>
+
+                <p>
+                    Creative design to match your vision.
+                </p>
+
+            </div>
+
+            <!-- Card 3 -->
+
+            <div class="feature-card">
+
+                <i class="bi bi-people"></i>
+
+                <h4>Guest Management</h4>
+
+                <p>
+                    Seamless management of guest lists and RSVPs.
+                </p>
+
+            </div>
+
+            <!-- Card 4 -->
+
+            <div class="feature-card">
+
+                <i class="bi bi-megaphone"></i>
+
+                <h4>Promotion & Marketing</h4>
+
+                <p>
+                    Effective marketing to maximize attendance.
+                </p>
+
+            </div>
+
+            <!-- Card 5 -->
+
+            <div class="feature-card">
+
+                <i class="bi bi-clock-history"></i>
+
+                <h4>On-site Coordination</h4>
+
+                <p>
+                    Professional coordination on the event day.
+                </p>
+
+            </div>
+
+            <!-- Card 6 -->
+
+            <div class="feature-card">
+
+                <i class="bi bi-wallet2"></i>
+
+                <h4>Budget Management</h4>
+
+                <p>
+                    Efficient budget management to ensure cost effectiveness.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+<!-- ================= WHY CHOOSE US ================= -->
+<div class="container">
+
+<div class="why-section">
+
+    <div class="section-heading">
+
+        <h2>Why Choose Us</h2>
+
+        <h3>Trusted Event Professionals</h3>
+
+        <p>
+            We are committed to delivering exceptional events with a focus on
+            quality, reliability, and client satisfaction.
+        </p>
+
+    </div>
+
+    <div class="why-grid">
+
+        <div class="feature-card">
+
+            <i class="bi bi-patch-check"></i>
+
+            <h4>Proven Expertise</h4>
+
+            <p>
+                Years of experience delivering exceptional events.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <i class="bi bi-shield-check"></i>
+
+            <h4>Reliable Service</h4>
+
+            <p>
+                Dependable service you can trust.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <i class="bi bi-people"></i>
+
+            <h4>Client-Centric Approach</h4>
+
+            <p>
+                Tailored solutions to meet your specific needs.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <i class="bi bi-clock-history"></i>
+
+            <h4>Time-Saving Solutions</h4>
+
+            <p>
+                Efficient planning to save your time and effort.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+<!-- ================= EVENTS PREVIEW ================= -->
+
+<div class="events-section">
+
+    <div class="section-heading">
+
+        <h2>Events Preview</h2>
+
+    </div>
+
+    <div class="events-grid">
+
+        <!-- Card 1 -->
+
+        <div class="event-card">
+
+            <img src="{% static 'images/event1.jpg' %}" alt="">
+
+            <div class="event-content">
+
+                <h4>Tech Conference 2024</h4>
+
+                <p>A gathering of tech innovators and industry leaders.</p>
+
+                <a href="{% url 'event_details' %" class="event-btn">View Details</a>
+
+            </div>
+
+        </div>
+
+        <!-- Card 2 -->
+
+        <div class="event-card">
+
+            <img src="{% static 'images/event2.jpg' %}" alt="">
+
+            <div class="event-content">
+
+                <h4>Corporate Events</h4>
+
+                <p>Professional and impactful corporate gatherings.</p>
+
+                <a href="#" class="event-btn">View Details</a>
+
+            </div>
+
+        </div>
+
+        <!-- Card 3 -->
+
+        <div class="event-card">
+
+            <img src="{% static 'images/event3.jpg' %}" alt="">
+
+            <div class="event-content">
+
+                <h4>Private Parties</h4>
+
+                <p>Memorable and fun private parties.</p>
+
+                <a href="#" class="event-btn">View Details</a>
+
+            </div>
+
+        </div>
+
+        <!-- Card 4 -->
+
+        <div class="event-card">
+
+            <img src="{% static 'images/event4.jpg' %}" alt="">
+
+            <div class="event-content">
+
+                <h4>Festivals</h4>
+
+                <p>Large-scale music and arts festivals.</p>
+
+                <a href="#" class="event-btn">View Details</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="testimonial-section">
+
+    <div class="section-heading">
+        <h2>Testimonials</h2>
+    </div>
+
+    <div class="testimonial-item">
+
+        <div class="profile">
+            <img src="{% static 'images/user1.jpg' %}" alt="">
+            <div>
+                <h5>Sophia Carter</h5>
+                <span>May 15, 2024</span>
+            </div>
+        </div>
+
+        <div class="stars">
+            ★★★★★
+        </div>
+
+        <p>
+            "Master Promote made our wedding day absolutely perfect.
+            Their attention to detail and seamless execution allowed
+            us to fully enjoy our special day without any stress."
+        </p>
+
+    </div>
+
+    <div class="testimonial-item">
+
+        <div class="profile">
+            <img src="{% static 'images/user2.jpg' %}" alt="">
+            <div>
+                <h5>Ethan Bennett</h5>
+                <span>April 22, 2024</span>
+            </div>
+        </div>
+
+        <div class="stars">
+            ★★★★★
+        </div>
+
+        <p>
+            "We hired Master Promote for our annual corporate conference,
+            and they exceeded our expectations."
+        </p>
+
+    </div>
+
+    <div class="testimonial-item">
+
+        <div class="profile">
+            <img src="{% static 'images/user3.jpg' %}" alt="">
+            <div>
+                <h5>Olivia Hayes</h5>
+                <span>March 10, 2024</span>
+            </div>
+        </div>
+
+        <div class="stars">
+            ★★★★★
+        </div>
+
+        <p>
+            "Master Promote planned my birthday party perfectly.
+            The team was creative and responsive."
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- ================= CTA SECTION ================= -->
+
+<div class="cta-section">
+
+    <h2>Ready to Plan Your Next Event?</h2>
+
+    <p>
+        Let us help you create an unforgettable experience.
+        Contact us today to get started.
+    </p>
+
+    <a href="#" class="cta-btn">Book Your Event</a>
+
+</div>
+
+</section>
+
+
+
+{% endblock %}

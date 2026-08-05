@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Events{% endblock %}
+
+{% block content %}
+
+<section class="page-bg">
+
+    <div class="container">
+
+        <div class="events-page">
+
+            <h2 class="page-title">Events</h2>
+
+            <div class="filter-bar">
+
+                <select>
+                    <option>Event Type</option>
+                </select>
+
+                <select>
+                    <option>Budget Range</option>
+                </select>
+
+                <select>
+                    <option>Location</option>
+                </select>
+
+                <select>
+                    <option>Venue</option>
+                </select>
+
+            </div>
+
+            <div class="events-grid">
+
+    {% for event in events %}
+
+    <div class="event-card">
+
+        <img src="{{ event.image.url }}" alt="{{ event.title }}">
+
+        <div class="event-content">
+
+            <h4>{{ event.title }}</h4>
+
+            <p>{{ event.description|truncatewords:12 }}</p>
+
+            <a href="{% url 'event_details' event.id %}" class="event-btn">
+                View Details
+            </a>
+
+        </div>
+
+    </div>
+
+    {% empty %}
+
+    <h3>No Events Available</h3>
+
+    {% endfor %}
+
+</div>
+
+            
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

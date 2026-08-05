@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Event Details{% endblock %}
+
+{% block content %}
+
+<section class="page-bg">
+
+<div class="container">
+
+<div class="event-details">
+
+   <img src="{{ event.image.url }}" class="event-banner" alt="{{ event.title }}">
+
+    <h2>{{ event.title }}</h2>
+
+  <p class="event-subtitle">
+    {{ event.description }}
+</p>
+
+<div class="event-meta">
+
+    <p><strong>Date:</strong> {{ event.date }}</p>
+
+    <p><strong>Location:</strong> {{ event.location }}</p>
+
+</div>
+
+    <div class="event-buttons">
+
+        <a href="#" class="call-btn">
+            <i class="bi bi-telephone-fill"></i>
+            Call Now
+        </a>
+
+        <a href="{% url 'booking' %}?event=Tech Conference 2024" class="enquiry-btn">
+            Enquiry Form
+        </a>
+
+    </div>
+
+    <div class="event-description">
+
+        <p>
+    {{ event.description }}
+</p>
+
+    </div>
+
+    <h3>Services Included</h3>
+
+    <ul class="service-list">
+
+        <li>Keynote Speakers</li>
+        <li>Interactive Workshops</li>
+        <li>Networking Events</li>
+        <li>Exhibition Hall</li>
+
+    </ul>
+
+    <h3>Event Highlights</h3>
+
+    <div class="highlight-grid">
+
+        <div class="highlight-card">
+            <i class="bi bi-people"></i>
+            <span>500+ Attendees</span>
+        </div>
+
+        <div class="highlight-card">
+            <i class="bi bi-mic"></i>
+            <span>30+ Speakers</span>
+        </div>
+
+        <div class="highlight-card">
+            <i class="bi bi-calendar-event"></i>
+            <span>2-Day Event</span>
+        </div>
+
+        <div class="highlight-card">
+            <i class="bi bi-geo-alt"></i>
+            <span>Downtown Convention Center</span>
+        </div>
+
+    </div>
+
+    <h3>Sample Pricing</h3>
+
+    <p>
+        Pricing varies based on the services selected and the scale of the event.
+        Contact us for a detailed quote tailored to your specific needs.
+    </p>
+
+    <a href="{% url 'booking' %}?event={{ event.title }}" class="book-event-btn">
+        Book This Event
+    </a>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

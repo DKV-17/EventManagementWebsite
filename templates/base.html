@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+    <title>{% block title %}Event Management{% endblock %}</title>
+</head>
+
+<body>
+
+    <nav class="navbar">
+    <div class="container nav-container">
+
+        <div class="logo">
+            <img src="{% static 'images/logo.png' %}" alt="Logo">
+        </div>
+
+        <ul class="nav-links">
+
+    <li><a href="{% url 'home' %}">Home</a></li>
+
+    <li><a href="{% url 'events' %}">Events</a></li>
+
+    <li><a href="{% url 'services' %}">Services</a></li>
+
+    <li><a href="{% url 'about' %}">About Us</a></li>
+
+    <li><a href="{% url 'contact' %}">Contact</a></li>
+
+</ul>
+
+<a href="{% url 'booking' %}" class="book-btn">
+    Book Event
+</a>
+</div>
+</nav>
+
+
+    {% block content %}
+
+    {% endblock %}
+<footer class="footer">
+
+    <div class="container footer-container">
+
+        <ul class="footer-links">
+
+    <li><a href="{% url 'home' %}">Home</a></li>
+
+    <li><a href="{% url 'events' %}">Events</a></li>
+
+    <li><a href="{% url 'services' %}">Services</a></li>
+
+    <li><a href="{% url 'about' %}">About Us</a></li>
+
+    <li><a href="{% url 'contact' %}">Contact</a></li>
+
+</ul>
+
+        <div class="footer-links second">
+
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+
+        </div>
+
+        <div class="social-icons">
+
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-instagram"></i>
+            <i class="bi bi-twitter-x"></i>
+
+        </div>
+
+        <p>
+            © 2024 Make Events. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
