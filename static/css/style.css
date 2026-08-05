@@ -1535,11 +1535,7 @@ CONTACT PAGE
     opacity:.9;
 }
 
-background:linear-gradient(
-90deg,
-#FAEBBA,
-#948B6E
-);
+
 
 .features-grid,
 .why-grid,
@@ -1597,4 +1593,21 @@ background:linear-gradient(
 }
 .event-btn{
     margin-top: auto;
+}
+
+.book-btn-gradient{
+    display:inline-block;
+    padding:10px 22px;
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    border:none;
+    border-radius:8px;
+
+    background:linear-gradient(
+        90deg,
+        #4F0410 0%,
+        #7A2A25 45%,
+        #F7CD64 100%
+    );
 }
