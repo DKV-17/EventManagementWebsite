@@ -43,7 +43,7 @@ Message:
 """,
                 from_email=settings.EMAIL_HOST_USER,
                 recipient_list=[settings.EMAIL_HOST_USER],
-                fail_silently=False,
+                fail_silently=True,
             )
 
             # Confirmation Email
@@ -61,7 +61,7 @@ Make Events Team
 """,
                 from_email=settings.EMAIL_HOST_USER,
                 recipient_list=[email],
-                fail_silently=False,
+                fail_silently=True,
             )
 
             messages.success(request, "Message sent successfully.")
