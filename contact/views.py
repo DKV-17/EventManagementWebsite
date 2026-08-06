@@ -23,7 +23,9 @@ def contact(request):
             subject=subject,
             message=message
         )
-
+        print("EMAIL_HOST_USER =", settings.EMAIL_HOST_USER)
+        print("EMAIL_HOST_PASSWORD EXISTS =", bool(settings.EMAIL_HOST_PASSWORD))
+        
         # Email to Admin
         send_mail(
             subject=f"New Contact Enquiry: {subject}",
