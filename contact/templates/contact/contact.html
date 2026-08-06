@@ -13,6 +13,31 @@
 
     <h2>Get in Touch</h2>
 
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert-success-custom">
+            <div class="success-icon">
+                <i class="bi bi-check-circle-fill"></i>
+            </div>
+
+            <div class="success-content">
+                <h4>Message Sent Successfully!</h4>
+                <p>{{ message }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+
+    {% if messages %}
+    {% for message in messages %}
+        <div class="success-message">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
     <form method="POST" class="contact-form">
     {% csrf_token %}
 
