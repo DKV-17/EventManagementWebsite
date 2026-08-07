@@ -3,6 +3,7 @@ from .models import Contact
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
+import traceback
 
 
 def contact(request):
@@ -43,7 +44,7 @@ Message:
 """,
                 from_email=settings.EMAIL_HOST_USER,
                 recipient_list=[settings.EMAIL_HOST_USER],
-                fail_silently=True,
+                fail_silently=False,
             )
 
             # Confirmation Email
@@ -61,14 +62,18 @@ Make Events Team
 """,
                 from_email=settings.EMAIL_HOST_USER,
                 recipient_list=[email],
-                fail_silently=True,
+                fail_silently=False,
             )
 
             messages.success(request, "Message sent successfully.")
-            return redirect("contact")
 
         except Exception as e:
-            print("SMTP ERROR:", repr(e))
-            raise
+            print("========== SMTP ERROR ==========")
+            traceback.print_exc()
+            print("===============================")
+
+            messages.error(request, f"SMTP Error: {e}")
+
+        return redirect("contact")
 
     return render(request, "contact/contact.html")
