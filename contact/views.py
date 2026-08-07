@@ -1,48 +1,24 @@
 from django.shortcuts import render, redirect
 from .models import Contact
 from django.contrib import messages
-from django.core.mail import send_mail
-from django.conf import settings
 
 
 def contact(request):
 
-    print("===== CONTACT VIEW LOADED =====")
     if request.method == "POST":
 
-        name = request.POST.get("name")
-        email = request.POST.get("email")
-        phone = request.POST.get("phone")
-        subject = request.POST.get("subject")
-        message = request.POST.get("message")
-
         Contact.objects.create(
-            name=name,
-            email=email,
-            phone=phone,
-            subject=subject,
-            message=message,
+            name=request.POST.get("name"),
+            email=request.POST.get("email"),
+            phone=request.POST.get("phone"),
+            subject=request.POST.get("subject"),
+            message=request.POST.get("message"),
         )
 
-        try:
-            send_mail(
-                subject="SMTP Test",
-                message="SMTP Test",
-                from_email=settings.EMAIL_HOST_USER,
-                recipient_list=[settings.EMAIL_HOST_USER],
-                fail_silently=False,
-            )
-
-            messages.success(request, "Mail Sent!")
-
-        except Exception as e:
-            return render(
-                request,
-                "contact/contact.html",
-                {
-                    "smtp_error": str(e)
-                }
-            )
+        messages.success(
+            request,
+            "Thank you for contacting Make Events! Your enquiry has been submitted successfully. Our team will contact you soon."
+        )
 
         return redirect("contact")
 
