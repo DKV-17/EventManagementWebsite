@@ -7,6 +7,7 @@ from django.conf import settings
 
 def contact(request):
 
+    print("===== CONTACT VIEW LOADED =====")
     if request.method == "POST":
 
         name = request.POST.get("name")
