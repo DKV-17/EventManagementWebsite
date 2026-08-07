@@ -25,26 +25,23 @@ def contact(request):
 
         try:
             send_mail(
-                subject=f"New Contact Enquiry: {subject}",
-                message=f"""
-A new enquiry has been received.
-
-Name: {name}
-Email: {email}
-Phone: {phone}
-
-Message:
-{message}
-""",
+                subject="SMTP Test",
+                message="SMTP Test",
                 from_email=settings.EMAIL_HOST_USER,
                 recipient_list=[settings.EMAIL_HOST_USER],
                 fail_silently=False,
             )
 
-            messages.success(request, "Contact saved and email sent successfully!")
+            messages.success(request, "Mail Sent!")
 
         except Exception as e:
-            messages.error(request, f"SMTP Error: {e}")
+            return render(
+                request,
+                "contact/contact.html",
+                {
+                    "smtp_error": str(e)
+                }
+            )
 
         return redirect("contact")
 
